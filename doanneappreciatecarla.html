@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I APPRECIATE YOU LETTER</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(255, 255, 175);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .letter {
+            width: 300px;
+            height: 400px;
+            background-color: rgba(255, 250, 204, 0.8);
+            border: 2px solid rgb(255, 255, 100);
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.6s ease;
+        }
+
+        .letter.open {
+            height: 500px; /* Adjust height for opened letter */
+        }
+
+        .front, .back {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            color: white;
+            text-align: center;
+        }
+
+        .front {
+            background-color: #ffe600;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .back {
+            background-color: rgba(255, 250, 204, 0.8);
+            color: black;
+            position: absolute;
+            top: 100%; /* Start hidden */
+            left: 0;
+            transition: all 0.6s ease;
+            height: 400px; /* Match height of letter */
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .letter.open .back {
+            top: 0; /* Move back into view */
+        }
+
+        .letter.open .front {
+            top: -100%; /* Move front out of view */
+        }
+        .go-back-button {
+            position: absolute; /* Positioning the button absolutely */
+            top: 15px; /* Distance from the top */
+            left: 15px; /* Distance from the left */
+            font-size: 15px; /* Font size */
+            padding: 10px 20px; /* Padding inside the button */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            background-color: #ffd900; /* Button color */
+            color: white; /* Button text color */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        .go-back-button:hover {
+            background-color: #fffb18; /* Darker shade on hover */
+        }
+
+    </style>
+</head>
+<body>
+
+  <audio id="timelineMusic" src="True Colors (Film Version).mp3" autoplay loop></audio>
+
+<div class="letter" onclick="this.classList.toggle('open')">
+    <div class="front">
+        <h2 title="lick me dyke OPSXIE CLICK">OFC I DO!</h2>
+        <p>You're so silly</p>
+    </div>
+    
+    <div class="back">
+      <h2 title="wipe your tear ass up and go back to my search engine you dyke">I appreciate you because...</h2>
+      <p>
+        You're genuine in everything you do. You have a clear understanding of your principles and stick to them, no matter the circumstances. Even though we’ve been joking around and playfully teasing each other recently, I can see that beneath it all, you remain the deeply loving and sincere person I know. This genuineness defines who you are, and I truly appreciate that about you.
+      </p>
+  </div>
+</div>
+
+    <!-- Go Back button -->
+    <button id="goBackButton" class="go-back-button">Go Back</button>
+
+    <script>
+        document.getElementById('goBackButton').addEventListener('click', function() {
+            const audio = document.getElementById('timelineMusic');
+            localStorage.setItem('audioTime', audio.currentTime); // Save current playback time
+            window.location.href = '02.html'; // Redirect to the main page
+        });
+    </script>
+</body>
+</html>

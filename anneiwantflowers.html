@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLOWER FOR KOTCH</title>
+    <style>
+         body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(255, 255, 175); /* Light blue background */
+        }
+
+        .flower-head {
+            position: relative;
+            width: 900px; /* Increased flower size to thrice */
+            height: 900px; /* Increased flower size to thrice */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .petal {
+            position: absolute;
+            width: 380px; /* Adjusted petal size */
+            height: 160px; /* Adjusted petal size */
+            background-color: #FF69B4;
+            border-radius: 80px;
+        }
+
+        .petal:nth-child(1) { transform: rotate(0deg); }
+        .petal:nth-child(2) { transform: rotate(60deg); }
+        .petal:nth-child(3) { transform: rotate(120deg); }
+        .petal:nth-child(4) { transform: rotate(180deg); }
+        .petal:nth-child(5) { transform: rotate(240deg); }
+        .petal:nth-child(6) { transform: rotate(300deg); }
+
+        .center {
+            width: 200px; /* Increased center size */
+            height: 200px; /* Increased center size */
+            background-color: #FFD700;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Message styling and fade animation */
+        .message {
+            font-size: 24px;
+            color: #333;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .show {
+            opacity: 1;
+        }
+        
+        /* Button styles */
+        .go-back-button {
+            position: absolute; /* Positioning the button absolutely */
+            top: 15px; /* Distance from the top */
+            left: 15px; /* Distance from the left */
+            font-size: 15px; /* Font size */
+            padding: 10px 20px; /* Padding inside the button */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            background-color: #ffd900; /* Button color */
+            color: white; /* Button text color */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        .go-back-button:hover {
+            background-color: fffb18; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Flower Element -->
+    <div class="flower-head" onclick="showRandomMessage()" title="sorry, it's a simple one 🙁 realistic flower is beyond my skill">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="center"></div>
+    </div>
+
+    <!-- Message to show on click -->
+    <div class="message" id="flowerMessage">Click the flower!</div>
+
+    <audio id="timelineMusic" src="Huwag Kang Matakot.mp3" autoplay loop></audio>
+
+    <script>
+        // Array of messages to display
+        const messages = [
+            "Don't worry!😊",
+            "It's not your fault, baby. ☹",
+            "You have a beautiful soul! 🌼",
+            "I miss you sm 🙁",
+            "I love you!",
+            "I know you love me, don't lie!",
+            "Live",
+            "Let's meet again hehe",
+            "Aw I love you too!",
+            "I love you more",
+            "You have me",
+            "Hindi natin sila bati",
+            "WARM HUGS",
+            "I appreciate you!",
+            "Relax, bae! Breathe!"
+        ];
+
+        let fadeTimeout; // Variable to keep track of fade-out timeout
+
+        function showRandomMessage() {
+            const messageElement = document.getElementById("flowerMessage");
+            
+            // Fade out the current message
+            messageElement.classList.remove("show");
+            
+            // Clear any existing fade timeout to avoid overlap
+            clearTimeout(fadeTimeout);
+            
+            // After fading out, update and fade in the new message
+            setTimeout(() => {
+                // Get a random message
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+                // Update the message text
+                messageElement.textContent = randomMessage;
+
+                // Fade in the new message
+                messageElement.classList.add("show");
+
+                // Set a timeout to fade out after 5 seconds
+                fadeTimeout = setTimeout(() => {
+                    messageElement.classList.remove("show");
+                }, 3000); // 5 seconds
+            }, 1000); // Wait for 1 second for the fade out before showing the new message
+        }
+    </script>
+
+    <!-- Go Back button -->
+    <button id="goBackButton" class="go-back-button">Go Back</button>
+
+    <script>
+        document.getElementById('goBackButton').addEventListener('click', function() {
+            const audio = document.getElementById('timelineMusic');
+            localStorage.setItem('audioTime', audio.currentTime); // Save current playback time
+            window.location.href = '02.html'; // Redirect to the main page
+        });
+    </script>
+
+</body>
+</html>

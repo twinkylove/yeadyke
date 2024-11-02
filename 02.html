@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search Page</title>
+    <style>
+        body {
+            background-color: #f2f2f2; /* Light gray background */
+            font-family: 'Arial', sans-serif; /* Soft font */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column; /* Arrange elements vertically */
+        }
+
+        h1 {
+            font-size: 36px; /* Title font size */
+            margin-bottom: 20px; /* Space below the title */
+        }
+
+        .search-container {
+            width: 400px; /* Width of the search box */
+            position: relative; /* Position relative for suggestions */
+        }
+
+        input[type="text"] {
+            width: 100%; /* Full width */
+            padding: 10px; /* Padding inside the input */
+            font-size: 18px; /* Font size */
+            border: 1px solid #ccc; /* Border for input */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .suggestions {
+            position: absolute; /* Absolute positioning for suggestions */
+            background-color: white; /* White background for suggestions */
+            border: 1px solid #ccc; /* Border for suggestions */
+            width: 100%; /* Match the input width */
+            z-index: 1000; /* Ensure suggestions are above other content */
+            border-radius: 5px; /* Rounded corners for suggestions */
+            display: none; /* Hidden by default */
+        }
+
+        .suggestion {
+            padding: 10px; /* Padding inside suggestion */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        .suggestion:hover {
+            background-color: #f0f0f0; /* Highlight suggestion on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="timelineMusic" src="With a Smile_Qws7Fh4Yx5w.mp3" autoplay loop></audio>
+
+    <script>
+    window.onload = function() {
+        const audio = document.getElementById('timelineMusic');
+        audio.currentTime = 0; // Reset to the beginning
+        audio.play(); // Start playing the audio
+    };
+    </script>
+
+    <h1 title="i miss you too!">Missing me already, huh?</h1> <!-- Title above the search input -->
+    <div class="search-container" title="type here, bae!">
+        <input type="text" id="searchInput" placeholder="Ask Anne">
+        <div class="suggestions" id="suggestionsList"></div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const suggestionsList = document.getElementById("suggestionsList");
+
+        // Predefined search suggestions and their corresponding result pages
+        const suggestions = [
+            { text: "How did it all start?", url: "howdiditallstarted.html" },
+            { text: "Do Anne appreciate Carla?", url: "doanneappreciatecarla.html" },
+            { text: "How does Anne see Carla?", url: "howdoesanneseecarla.html" },
+            { text: "Anne, I want flowers", url: "anneiwantflowers.html" },
+            { text: "What Anne's favorite memory with Carla?", url: "annesfav.html" },
+            { text: "I want to play, Anne", url: "playanne.html" },
+        ];
+
+
+        // Show suggestions based on input
+        searchInput.addEventListener("input", () => {
+            const query = searchInput.value.toLowerCase();
+            suggestionsList.innerHTML = ''; // Clear previous suggestions
+
+            // Filter and display suggestions
+            if (query) {
+                const filteredSuggestions = suggestions.filter(suggestion => 
+                    suggestion.text.toLowerCase().includes(query)
+                );
+
+                filteredSuggestions.forEach(suggestion => {
+                    const div = document.createElement("div");
+                    div.classList.add("suggestion");
+                    div.textContent = suggestion.text;
+
+                    // Redirect to the corresponding result page when a suggestion is clicked
+                    div.addEventListener("click", () => {
+                        window.location.href = suggestion.url; // Redirect to the specific result page
+                    });
+
+                    suggestionsList.appendChild(div);
+                });
+                suggestionsList.style.display = filteredSuggestions.length ? 'block' : 'none'; // Show or hide suggestions
+            } else {
+                suggestionsList.style.display = 'none'; // Hide suggestions if input is empty
+            }
+        });
+
+        // Close suggestions when clicking outside
+        document.addEventListener("click", (event) => {
+            if (!searchInput.contains(event.target)) {
+                suggestionsList.style.display = 'none'; // Hide suggestions
+            }
+        });
+    </script>
+</body>
+</html>

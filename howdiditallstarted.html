@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HOW DID IT ALL STARTED?</title>
+    <style>
+        /* Style code remains the same */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: rgb(255, 255, 175);
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 28px;
+        }
+        .timeline {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            padding: 10px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .timeline-image {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .timeline-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffd900;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .timeline-link:hover {
+            background-color: #fffb18;
+        }
+        /* Button styles */
+        .go-back-button {
+            position: absolute; /* Positioning the button absolutely */
+            top: 15px; /* Distance from the top */
+            left: 15px; /* Distance from the left */
+            font-size: 15px; /* Font size */
+            padding: 10px 20px; /* Padding inside the button */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            background-color: #ffd900; /* Button color */
+            color: white; /* Button text color */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        .go-back-button:hover {
+            background-color: fffb18; /* Darker shade on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <audio id="timelineMusic" src="Huwag Kang Matakot by Eraserheads piano cover _ lyrics + sheet music_t2nbYYZL4sw.mp3" loop autoplay></audio>
+
+    <h1>It started when...</h1>
+
+    <div class="timeline">
+        <!-- First Part: Picture and Description -->
+        <div class="timeline-item">
+            <h2>Mapeh Task Late Submission</h2>
+            <img src="Screenshot_20230920_094439_Messenger.jpg" alt="First Meeting" class="timeline-image" title="I SEARCHED ALL OVER THE WORLD JUST TO FIND THIS PHOTO, DON'T ASK WHY THE QUALITY IS SO BAD!">
+            <p>If someone asked us when it all began, I know we would both point to November 3, 2022, the day we submitted our MAPEH task late. Our conversation started casually over tea, and although we didn’t reveal any names at first, we eventually gave in since we could both guess who each other was referring to. There was no cursing, just plenty of emojis. We shared our first impressions of one another and exchanged lots of candid pictures.</p>
+        </div>
+
+        <!-- Middle Part: Link to Another HTML Page -->
+        <div class="timeline-item">
+            <h2>Pieces of Our Shared Moments</h2>
+            <a href="annesfav.html" class="timeline-link">Browse</a>
+        </div>
+
+        <!-- Last Part: Picture and Description -->
+        <div class="timeline-item">
+            <h2>Current Moment</h2>
+            <p>We're celebrating our second year of friendship! You might think I’m being irrational or overly excited for making a big deal out of this, but let me be, lol. Admit it, it’s cute! I even learned JavaScript, little in CSS and HTML, just to greet you on our 2nd year of friendship. What more can you say?</p>
+        </div>
+    </div>
+
+    <!-- Go Back button -->
+    <button id="goBackButton" class="go-back-button">Go Back</button>
+
+    <script>
+        document.getElementById('goBackButton').addEventListener('click', function() {
+            const audio = document.getElementById('timelineMusic');
+            localStorage.setItem('audioTime', audio.currentTime); // Save current playback time
+            window.location.href = '02.html'; // Redirect to the main page
+        });
+    </script>
+</body>
+</html>

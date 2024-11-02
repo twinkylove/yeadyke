@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANNE'S FAV MOMMENT WITH YOU</title>
+  <style>
+    .go-back-button {
+      position: absolute; /* Positioning the button absolutely */
+      top: 15px; /* Distance from the top */
+      left: 15px; /* Distance from the left */
+      font-size: 15px; /* Font size */
+      padding: 10px 20px; /* Padding inside the button */
+      border: none; /* Remove border */
+      border-radius: 5px; /* Rounded corners */
+      background-color: #ffd900; /* Button color */
+      color: white; /* Button text color */
+      cursor: pointer; /* Pointer cursor on hover */
+      transition: background-color 0.3s; /* Smooth transition for hover effect */
+    }
+    .go-back-button:hover {
+      background-color: #fffb18; /* Darker shade on hover */
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(255, 255, 175);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .audio-player {
+      margin-top: 20px;
+    }
+    .timeline {
+      width: 80%;
+      max-width: 800px;
+      margin: 20px;
+      position: relative;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background-color: #ccc;
+      transform: translateX(-50%);
+    }
+    .event {
+      position: relative;
+      width: 50%;
+      padding: 10px 20px;
+      box-sizing: border-box;
+    }
+    .event.left {
+      left: 0;
+    }
+    .event.right {
+      left: 50%;
+    }
+    .event::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: yellow;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+    .event.left::before {
+      right: -10px;
+    }
+    .event.right::before {
+      left: -10px;
+    }
+    .event-content {
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .event h3 {
+      margin: 0 0 5px;
+    }
+    .event p {
+      margin: 0;
+      color: #555;
+    }
+    .event img {
+      width: 100%;
+      max-width: 150px;
+      height: auto;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .event video {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="timelineMusic" src="Huwag Kang Matakot by Eraserheads piano cover _ lyrics + sheet music_t2nbYYZL4sw.mp3" restart autoplay></audio>
+
+  <script>
+      const audio = document.getElementById('timelineMusic');
+  
+      // Restore the playback time if it exists
+      window.onload = () => {
+          const savedTime = localStorage.getItem('audioTime');
+          if (savedTime) {
+              audio.currentTime = savedTime; // Set the audio to the saved time
+          }
+          audio.play(); // Start playing the audio
+      };
+  
+      // Save the current time before leaving the page
+      window.onbeforeunload = () => {
+          localStorage.setItem('audioTime', audio.currentTime);
+      };
+  </script>  
+
+  <h1>Canon Events</h1>
+
+  <div class="timeline">
+    <!-- Event 1 -->
+    <div class="event left">
+      <div class="event-content">
+        <h3 title="do we really need a description for this one? this picture genuinely feels like home to the point that i want to develop it so i can keep it in my wallet. maybe i'll frame it too or add it to my album. i will always want to pull out this picture of us">Christmas Party</h3>
+        <img src="received_814385902959242.jpeg" alt="Christmas Party" title="i can't remember any fun things i did back dec 2022, this is fr the only one that my brain was able to keep">
+      </div>
+    </div>
+    <!-- Event 2 -->
+    <div class="event right">
+      <div class="event-content">
+        <h3 title="dyke, shut up. SHUT. UP. we both know what really happened. it's not just a minor issue or simply crying over your incorrect assumption that you would score low on this certain filipino quiz. there's also the problem of people saying that we are the ones who told ms. about the cheating. congratulations to us for achieving a score of line of 4 out of 50 tho!">Filo Quiz Iyak</h3>
+        <img src="20231130_083310.jpg" alt="Event 2" title="coping mechanism: i-chat si Binibining Jane">
+      </div>
+    </div>
+    <!-- Event 3 -->
+    <div class="event left">
+      <div class="event-content">
+        <h3 title="shutupdyke this one is cute">Candy Crush</h3>
+        <img src="462576693_585211607359488_7153042257180796789_n.jpg" alt="Event 3" title="send me life!">
+      </div>
+    </div>
+    <!-- Event 4 -->
+    <div class="event right">
+      <div class="event-content">
+        <h3>After School Eat</h3>
+        <img src="462644457_879873337617264_5100847421670572449_n.jpg" alt="Event 4">
+      </div>
+    </div>
+    <!-- Event 5 -->
+    <div class="event left">
+      <div class="event-content">
+        <h3 title="i love walking with you but if you will ask me deeper... i love walking with you, especially sa hagdan, i love that moment na i feel like you trust me sm and i was the only one who knows abt ur health condition">Walks</h3>
+        <img src="462557370_1991674707947660_1589337081026738776_n.jpg" alt="Event 5" title="you're not judged here. love u!">
+      </div>
+    </div>
+    <!-- Event 6 -->
+    <div class="event right">
+      <div class="event-content">
+        <h3 title="you know it">Our Sorries</h3>
+        <img src="Screenshot_20231112_231800_Facebook.jpg" alt="Event 6">
+      </div>
+    </div>
+  </div>
+
+  <!-- Go Back button -->
+  <button id="goBackButton" class="go-back-button">Go Back</button>
+
+  <script>
+      document.getElementById('goBackButton').addEventListener('click', function() {
+          const audio = document.getElementById('timelineMusic');
+          localStorage.setItem('audioTime', audio.currentTime); // Save current playback time
+          window.location.href = '02.html'; // Redirect to the main page
+      });
+  </script>
+</body>
+</html>

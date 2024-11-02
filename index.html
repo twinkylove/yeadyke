@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: rgb(255, 255, 175); /* Sky blue background */
+            font-family: 'Arial', sans-serif; /* Soft font */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Light background for contrast */
+            border-radius: 20px; /* Rounded corners */
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+            text-align: center; /* Center text */
+        }
+
+        h1 {
+            font-size: 36px; /* Large font size */
+            margin: 10px 0; /* Margin around text */
+        }
+
+        button {
+            font-size: 20px; /* Larger font size for buttons */
+            padding: 10px 20px; /* Button padding */
+            margin: 10px; /* Space between buttons */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded button corners */
+            background-color: #ffd900; /* Button color */
+            color: white; /* Button text color */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        button:hover {
+            background-color: #fffb18; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 title="dyke, stop catching the no button and let me be affectionate for a moment!">Happy 2nd year of friendship, Carla!</h1>
+        <p title="shut your dyke mouth up, click yes already">Can I be affectionate for a moment?</p>
+        <button id="yesButton" title="click me, dyke!">YES</button>
+        <button id="noButton">NO</button>
+    </div>
+
+    <script>
+
+        // Redirect when Yes button is clicked
+        document.getElementById("yesButton").addEventListener("click", () => {
+            window.location.href = "02.html"; // Change to your desired URL
+        });
+
+        // Make the No button move around
+        const noButton = document.getElementById("noButton");
+        noButton.addEventListener("mouseenter", () => {
+            noButton.style.position = "absolute";
+            noButton.style.top = Math.random() * 80 + "vh"; // Random vertical position
+            noButton.style.left = Math.random() * 80 + "vw"; // Random horizontal position
+        });
+    </script>
+</body>
+</html>
